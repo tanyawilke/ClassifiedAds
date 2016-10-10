@@ -1,0 +1,102 @@
+﻿@model ClassifiedAdsApp.Models.BigViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container">
+    <h2>@ViewBag.Title</h2>
+    <h3>@ViewBag.Message</h3>
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                <div>
+                    @Html.ActionLink("View all ads", "Index") |
+                    @Html.ActionLink("View my ads", "MyAdverts")
+                </div>
+            </p>
+            <div class="container well">
+                <h3>Ad information</h3>
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.AdsViewAdverts.Title): @Html.DisplayFor(model => model.AdsViewAdverts.Title)
+                </div>
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.AdsViewAdverts.Description): @Html.DisplayFor(model => model.AdsViewAdverts.Description)
+                </div>
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.AdsViewAdverts.Price): @Html.DisplayFor(model => model.AdsViewAdverts.Price)
+                </div>
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.AdsViewAdverts.DatePublished): @Html.DisplayFor(model => model.AdsViewAdverts.DatePublished)
+                </div>
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.AdsViewAdverts.ExpiryDate): @Html.DisplayFor(model => model.AdsViewAdverts.ExpiryDate)
+                </div>
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.AdsViewAdverts.Category): @Html.DisplayFor(model => model.AdsViewAdverts.Category.Description)
+                </div>
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.AdsViewAdverts.SubCategory): @Html.DisplayFor(model => model.AdsViewAdverts.SubCategory.Description)
+                </div>
+                <h3>Contact information</h3>
+                @if (Model.AdsViewContact != null) { 
+                    <div class="form-group">
+                        @Html.DisplayNameFor(model => model.AdsViewContact.ContactName): @Html.DisplayFor(model => model.AdsViewContact.ContactName)
+                    </div>
+                    <div class="form-group">
+                        @Html.DisplayNameFor(model => model.AdsViewContact.ContactPhoneNumber): @Html.DisplayFor(model => model.AdsViewContact.ContactPhoneNumber)
+                    </div>
+                    <div class="form-group">
+                        @Html.DisplayNameFor(model => model.AdsViewContact.ContactEmail): @Html.DisplayFor(model => model.AdsViewContact.ContactEmail)
+                    </div>
+                    <div class="form-group">
+                        @Html.DisplayNameFor(model => model.AdsViewContact.ContactPhysicalAddress): @Html.DisplayFor(model => model.AdsViewContact.ContactPhysicalAddress)
+                    </div>
+                    <div class="form-group">
+                        @Html.DisplayNameFor(model => model.AdsViewContact.WebSite): @Html.DisplayFor(model => model.AdsViewContact.WebSite)
+                    </div>
+                }
+                else
+                {
+                    <p>There is no contact information available for this ad.</p>
+                }
+                <h3>Supporting information</h3>
+                @{
+                    if (Model.AdsViewFile != null)
+                    {
+                        var fileContentType = Model.AdsViewFile.ContentType != null ? Model.AdsViewFile.ContentType : null;
+                        var fileId = Model.AdsViewFile.FileId != 0 ? Model.AdsViewFile.FileId : 0;
+                        var fileName = Model.AdsViewFile.Filename != null ? Model.AdsViewFile.Filename : null;
+                        var fileContent = Model.AdsViewFile.Content != null ? Model.AdsViewFile.Content : null;
+
+                        <div class="form-group">
+                            @if (fileId > 0)
+                            {
+                                if (fileContentType.Contains("image"))
+                                {
+                                    <img src="~/File?id=@fileId" alt="ad" />
+                                }
+                                else
+                                {
+                                    <a href="~/File?id=@fileId" alt="ad" target="_blank"><div class="docAttachment"></div></a>
+                                }
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <p>No supporting documentation or images attached is available for this ad.</p>
+                    }
+                }
+
+                
+            </div>
+            <p>
+                <div>
+                    @Html.ActionLink("View all ads", "Index") |
+                    @Html.ActionLink("View my ads", "MyAdverts")
+                </div>
+            </p>
+        </div>
+    </div>
+</div>

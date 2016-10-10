@@ -1,0 +1,9 @@
+﻿@model ClassifiedAdsApp.Models.AdsViewFile
+<h3>Attachment</h3>
+<div class="form-group">
+    @Html.Label("Attachment", htmlAttributes: new { @class = "control-label col-md-3" })
+    <div class="col-md-9">
+        <input type="file" id="attachment" name="upload" accept="image/*" />
+        <img id="imgPlan" src="~/images/tooltip.png" title="e.g. sdfdsfdsf" />
+    </div>
+</div>

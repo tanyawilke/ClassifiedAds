@@ -1,0 +1,217 @@
+﻿@model ClassifiedAdsApp.Models.BigViewModel
+
+@{
+    ViewBag.Title = "Edit advert";
+}
+
+<div class="container">
+    <h2>@ViewBag.Title</h2>    
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                @Html.ActionLink("Back to my adverts", "MyAdverts") | @Html.ActionLink("View all adverts", "Index")
+            </div>
+            <div class="container well">
+                <h3>@ViewBag.Message</h3>
+                @using (Html.BeginForm("Edit", "AdsViewAdverts", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.AdsViewAdverts.Id)
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AdsViewAdverts.Title, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.AdsViewAdverts.Title, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AdsViewAdverts.Title, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AdsViewAdverts.Description, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.AdsViewAdverts.Description, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AdsViewAdverts.Description, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AdsViewAdverts.Price, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.AdsViewAdverts.Price, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AdsViewAdverts.Price, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AdsViewAdverts.DatePublished, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.AdsViewAdverts.DatePublished, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AdsViewAdverts.DatePublished, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AdsViewAdverts.ExpiryDate, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.AdsViewAdverts.ExpiryDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AdsViewAdverts.ExpiryDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AdsViewAdverts.Category, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.AdsViewAdverts.Category.Description, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AdsViewAdverts.CategoryId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                    @Html.LabelFor(x => x.Category.CategoryId, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(x => x.Category,
+                            new SelectList(ViewBag.CategoryList, "CategoryId", "Description"),
+                                "Select a category",
+                                new { @onchange = "FillSubCategories()" })
+                        @Html.HiddenFor(x => x.Category.CategoryId)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.SubCategory.SubCategoryId, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.DropDownListFor(m => m.SubCategory,
+                            new SelectList(Enumerable.Empty<SelectListItem>(), "SubCategoryId", "Description"),
+                                "Select a sub category",
+                                new { @onchange = "SetSubCategoryId()" })
+                        @Html.HiddenFor(m => m.SubCategory.SubCategoryId)
+                    </div>
+                </div>*@
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AdsViewAdverts.SubCategory, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.AdsViewAdverts.SubCategory.Description, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AdsViewAdverts.SubCategoryId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AdsViewAdverts.AdvertType, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.AdsViewAdverts.AdvertType.Description, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AdsViewAdverts.AdvertTypeId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AdsViewAdverts.Location, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.AdsViewAdverts.Location.Description, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AdsViewAdverts.LocationId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <h3>Contact information</h3>
+                        @Html.HiddenFor(model => model.AdsViewContact.Id)
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AdsViewContact.ContactName, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.AdsViewContact.ContactName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AdsViewContact.ContactName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AdsViewContact.ContactPhoneNumber, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.AdsViewContact.ContactPhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AdsViewContact.ContactPhoneNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AdsViewContact.ContactEmail, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.AdsViewContact.ContactEmail, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AdsViewContact.ContactEmail, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.AdsViewContact.ContactPhysicalAddress, htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                @Html.EditorFor(model => model.AdsViewContact.ContactPhysicalAddress, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AdsViewContact.ContactPhysicalAddress, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <h3>Supporting information</h3>
+                        @if (Model.AdsViewFile != null)
+                        {
+                            var fileContentType = Model.AdsViewFile.ContentType != null ? Model.AdsViewFile.ContentType : null;
+                            var fileId = Model.AdsViewFile.FileId != 0 ? Model.AdsViewFile.FileId : 0;
+                            var fileName = Model.AdsViewFile.Filename != null ? Model.AdsViewFile.Filename : null;
+                            var fileContent = Model.AdsViewFile.Content != null ? Model.AdsViewFile.Content : null;
+
+                            <div class="form-group">
+                                @Html.Label("Attachment", htmlAttributes: new { @class = "control-label col-md-3" })
+                                <div class="col-md-9">
+                                    @if (fileId > 0)
+                                    {
+                                        if (fileContentType.Contains("image"))
+                                        {
+                                            <img src="~/File?id=@fileId" alt="ad" />
+                                        }
+                                        else
+                                        {
+                                            @Html.DisplayNameFor(model => model.AdsViewFile.Filename)
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                        <div class="form-group">
+                            <p class="col-md-9 col-md-offset-1">To amend an existing attachment or upload a new attachments, please use the field below.</p>
+                            @Html.Label("New attachment", htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-9">
+                                <input type="file" id="attachment" name="upload" accept="image/*" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-9">
+                                <button type="submit" class="btn btn-default">Submit <span class="glyphicon glyphicon-send"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                @section Scripts {
+                    <script>
+                        function FillSubCategories() {
+                            var categoryId = $('#Category').val();
+                            $.ajax({
+                                url: '/AdsViewAdverts/FillSubCategories',
+                                type: "GET",
+                                dataType: "JSON",
+                                data: { category: categoryId },
+                                success: function (subcategories) {
+                                    $("#SubCategory").html(""); // clear before appending new list
+                                    $("#SubCategory").change('SetSubCategoryId()');
+                                    $("#SubCategory").append('<option>Select a subcategory</option>');
+                                    $.each(subcategories, function (i, subcategory) {
+                                        $("#SubCategory").append(
+                                            $('<option></option>').val(subcategory.Id).html(subcategory.Description));
+                                    });
+                                }
+                            });
+                        }
+
+                        function SetSubCategoryId() {
+                            var subCategoryId = $('#SubCategory');
+                            $.ajax({
+                                url: '/AdsViewAdverts/SetSubCategory',
+                                type: "POST",
+                                dataType: "JSON",
+                                data: JSON.stringify(subCategoryId),
+                                success: function (response) {
+                                }
+                            });
+                        }
+                    </script>
+                }
+            </div>
+            <div>
+                @Html.ActionLink("Back to my adverts", "MyAdverts") | @Html.ActionLink("View all adverts", "Index")
+            </div>
+        </div>
+    </div>
+</div>

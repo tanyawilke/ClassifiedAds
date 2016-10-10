@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Confirm your ad";
+}
+
+<div class="container">
+    <h2>@ViewBag.Title</h2>
+    <h3>@ViewBag.Message</h3>
+    <div class="row">
+        <div class="col-md-12">
+            <div>Thank you for placing your free ad. Please @Html.ActionLink("click here", "UpdateAdStatus", "AdsViewAdverts", new { id = @Request.QueryString["ad"] }, null) to confirm your ad.</div>
+        </div>
+    </div>
+</div>
