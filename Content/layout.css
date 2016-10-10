@@ -1,0 +1,231 @@
+﻿.page {
+    max-width: 1280px;
+    margin: 0 auto;    
+}
+
+.background {
+   position: relative;
+}
+
+.background::after {
+    content : "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url('../images/old-newspaper-template-photoshop-215.jpg');
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.3; 
+    filter: alpha(opacity=20);
+    z-index: -1;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+
+
+.navbar {
+    background-color: transparent;
+    border: 0;
+    color: #FFF;
+    font-family: 'NGO_____';
+}
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a,
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    font-size: 1.125rem;
+}
+
+.navbar-inverse .navbar-nav > li > a,
+.navbar-inverse .navbar-brand,
+ul.navbar-nav > li > a,
+ul.navbar-nav > li > a:active,
+ul.navbar-nav > li > a:hover,
+ul.navbar-nav > li > a.link {
+    color: #FFF;
+}
+
+.jumbotron {
+    padding: 0;
+    background-color: transparent;    
+    margin: 0 auto;
+    font-size: 1rem;
+}
+
+.jumbotron h1,
+.jumbotron h2 {
+    font-family: 'ufonts.com_new-york-bold';
+    text-align: center;
+    line-height: 1;
+    margin: 0;
+    color: #522d1d;
+}
+
+.jumbotron h1 {
+    font-size: 5rem;
+}
+
+.jumbotron h2 {
+    font-size: 3rem;
+}
+
+.carousel {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.sub-navbar {
+    background-color: #522d1d;
+    border: 0;
+    color: #FFF;
+}
+
+.navbar-fixed-top {
+    position: relative;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+footer .container {
+    color: #000;
+    margin: 0 auto;
+}
+
+
+footer a,
+footer a:hover {
+    color: #000;
+    text-decoration: none;
+    margin: auto 0;
+}
+
+.footercontent {
+    width: 100%;
+    margin: 0 auto;
+}
+
+row {
+    max-width: 1280px;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+/*==========================================================================
+  MARGIN AND PADDING
+  ========================================================================== */
+/* MARGIN-TOP */
+.marT-5 {margin-top: -5px;}
+.marT0  {margin-top: 0px;}
+.marT5 {margin-top: 5px;}
+.marT10 { margin-top: 10px; }
+.marT15 { margin-top: 15px; }
+.marT20 { margin-top: 20px; }
+.marT25 { margin-top: 25px; }
+.marT30 { margin-top: 30px; }
+.marT35 { margin-top: 35px; }
+.marT40 { margin-top: 40px; }
+.marT50 { margin-top: 50px; }
+.marT60 { margin-top: 60px; }
+.marT70 { margin-top: 70px; }
+
+/* MARGIN-TOP & MARGIN-BOTTOM */
+.marTB5 { margin: 5px 0 5px; }
+.marTB10 { margin: 10px 0 10px; }
+.marTB15 { margin: 15px 0 15px; }
+.marTB20 { margin: 20px 0 20px; }
+.marTB25 { margin: 25px 0 25px; }
+.marTB30 { margin: 30px 0 30px; }
+	
+/* MARGIN-BOTTOM */
+.marB0  { margin-bottom: 0; }
+.marB5  { margin-bottom: 5px; }
+.marB10 { margin-bottom: 10px; }
+.marB15 { margin-bottom: 15px; }
+.marB20 { margin-bottom: 20px; }
+.marB25 { margin-bottom: 25px; }
+.marB30 { margin-bottom: 30px; }
+.marB35 { margin-bottom: 35px; }
+.marB40 { margin-bottom: 40px; }
+.marB50 { margin-bottom: 50px; }
+.marB60 { margin-bottom: 60px; }
+.marB70 { margin-bottom: 70px; }
+	
+/* MARGIN-RIGHT */
+.marR0  { margin-right: 0; }
+.marR5  { margin-right: 5px; }
+.marR10  { margin-right: 10px; }
+.marR15  { margin-right: 15px; }
+.marR20 { margin-right: 20px; }
+.marR25 { margin-right: 25px; }
+
+/* MARGIN-LEFT */
+.marL0  { margin-left: 0; }
+.marL5  { margin-left: 5px; }
+.marL10  { margin-left: 10px; }
+.marL15  { margin-left: 15px; }
+.marL20 { margin-left: 20px; }
+.marL25 { margin-left: 25px; }
+
+/* MARGIN-RIGHT & MARGIN-LEFT */
+.marLR5 { margin:0 5px 0 5px; }
+.marLR10 { margin:0 10px 0 10px; }
+.marLR15 { margin:0 15px 0 15px; }
+.marLR15 { margin:0 20px 0 20px; }
+
+/* PADDING */
+.noPadB { padding-bottom: 0; }
+.padFix { padding: 50px 0 30px; }
+.pad0   { padding: 0px; }
+.pad3   { padding: 3px; }
+.pad5   { padding: 5px; }
+.pad30  { padding: 30px; }
+.pad36  { padding: 36px; }
+.pad38  { padding: 38px; }
+	
+/* PADDING-TOP */
+.padT0  { padding-top: 0px; }
+.padT10 { padding-top: 10px; }
+.padT15 { padding-top: 15px; }
+.padT20 { padding-top: 20px; }
+.padT25 { padding-top: 25px; }
+.padT30 { padding-top: 30px; }
+.padT35 { padding-top: 35px; }
+.padT40 { padding-top: 40px; }
+.padT70 { padding-top: 70px; }
+
+/* PADDING-RIGHT */
+.padR0 { padding-right: 0px; }
+.padR5 { padding-right: 5px; }
+.padR10 { padding-right: 10px; }
+.padR20 { padding-right: 20px; }
+
+/* PADDING-LEFT */
+.padL0 { padding-left: 0px; }
+.padL5 { padding-left: 5px; }
+.padL10 { padding-left: 10px; }
+.padL20 { padding-left: 20px; }
+
+/* PADDING-BOTTOM */
+.padB0  { padding-bottom: 0px; }
+.padB10 { padding-bottom: 10px; }
+.padB15 { padding-bottom: 15px; }
+.padB20 { padding-bottom: 20px; }
+.padB25 { padding-bottom: 25px; }
+.padB30 { padding-bottom: 30px; }
+.padB35 { padding-bottom: 35px; }
+.padB45 { padding-bottom: 45px; }
+.padB70 { padding-bottom: 70px; }
+

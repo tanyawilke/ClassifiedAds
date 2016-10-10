@@ -1,0 +1,89 @@
+﻿
+/*/*==========================================================================
+  FORM
+  ========================================================================== */
+  		
+	
+	select,
+    .select	{
+		background-color: #e2e4e5;
+		width: auto;
+		font-weight: 400;
+		color: #666;
+		border: 1px solid #ccc;
+	}
+	
+	option {
+		background-color: #e2e4e5;
+	}
+  	
+	
+  	input[type="text"].error, 
+  	input[type="password"].error,
+  	textarea.error {
+  		background: #e2e4e5;
+    	color: #ff0000;
+  	}
+
+  	.inputGroup { height: 65px; }
+  	label.error { font-size: 10px; color: #ff0000; display: block; font-weight: normal; }
+	.data .form{ width:240px; }
+	
+	
+	label { 
+		font-family: 'open_sansregular'; 
+		font-size: 12px; 
+		font-weight: bold;
+	    letter-spacing: 0.02em;
+	    display: block;
+	}
+	
+	label.selectEmail { font-size: 14px; font-family:'open_sansregular'; color:#303030; }
+	.data input { margin-right: -2px; width: 383px; }
+	.data button {
+	    background-position: 80% center;
+	    background-repeat: no-repeat;
+	    margin-right: 10px;
+	    /*margin-left: 11px;*/
+	    margin-bottom: 0;
+		padding: 10px 20px;
+		text-transform:uppercase;
+	}
+
+    .errorText {
+        color: red;
+		font-weight: bold;
+		padding-top: 5px;
+		padding-bottom: 15px;
+    }
+
+    
+    input[type="file"]::-ms-browse,
+    input[type="file"]::-webkit-file-upload-button  {
+        background: black;
+        color: red;
+        padding: 1em;
+    }
+	
+	.day,
+	.month {
+		width: 50px;
+	}
+	
+	.year {
+		width: 100px;
+	}
+	
+	.formColumns {
+		display: inline-block; 
+		vertical-align: text-top; 
+		margin-right: 15px;
+	}
+	
+	.form-group {
+		/*display: inline-block;*/
+		margin: 10px 15px 15px 0;
+	}
+
+    /*  Footer  */*/
+    
